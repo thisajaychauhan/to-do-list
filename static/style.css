@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  background-color: gainsboro;
+}
+
+.notes-card {
+  margin-top: 1rem;
+  text-align: center;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  padding: 1rem;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  background-color: thistle;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: .5rem;
+  margin-bottom: 1rem;
+}
+
+.edit-card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: thistle;
+  border-radius: 3px;
+  padding: .5rem;
+  margin-bottom: 1rem;
+}
+
+.operation{
+  display: flex;
+}
+
+.edit-ops button{
+  border-color: 1px solid green;
+  margin-right: 5px;
+}
+
+.delete-ops button{
+  background-color: 1px solid maroon;
+  margin-right: 5px;
+}
+
+.messages{
+  margin-top: 1rem;
+  text-align: center;
+  margin-left: 11rem;
+  margin-right: 11rem;
+  border-radius: 3px;
+  padding: .3rem;
+  background-color: rgb(152, 250, 152);
+}

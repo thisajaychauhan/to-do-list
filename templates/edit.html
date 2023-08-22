@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Note</title>
-</head>
-<body>
+{% extends 'layout.html' %}
+
+{%block main%}
+<div class="notes-card">
     <h1>Edit Note</h1>
-    <form action="{{ url_for('edit', note_id=note.id) }}" method="post">
-        <input type="text" name="edit_note" value="{{ note.note }}">
-        <button type="submit">Save Changes</button>
-    </form>
-</body>
-</html>
+    <div class="edit-card-body">
+        <form action="{{ url_for('edit', note_id=note.id) }}" method="post">
+            <input type="text" name="edit_note" value="{{ note.note }}">
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

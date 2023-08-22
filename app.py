@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for,flash
 from flask_sqlalchemy import SQLAlchemy
 from config import SQLALCHEMY_DATABASE_URI
 
@@ -22,6 +22,7 @@ def add():
     add_note = Task(note=note)
     db.session.add(add_note)
     db.session.commit()
+    # flash('note added successfully!', 'success')
     return redirect(url_for('index'))
 
 @app.route('/edit/<int:note_id>', methods=['GET', 'POST'])

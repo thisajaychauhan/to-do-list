@@ -1,42 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
-</head>
+{% extends 'layout.html' %}
+
+{%block main%}
+
 <body>
-    <h1 style="text-align: center;">Todo List</h1>
+    <h1>Todo List</h1>
 
     <form action="/add" method="post">
         <div style="text-align: center;">
-            <input type="text" name="note">
+            <input type="text" name="note" required>
             <button type="submit">Add note</button>
         </div>
     </form>
 
-<div style="text-align: center;">
-    <ul>
+    <!-- {% for message in get_flashed_messages() %}
+    <div class="messages">
+           <p>{{ message }}</p>
+        </div>
+        {% endfor %} -->
+    
+    <div class="notes-card">
         {% for note in notes %}
-       <div style="display: flex; justify-content: space-between;">
-        <div>
-            {{ note.note }}
+        <div class="card-body">
+            <div>
+                {{ note.note }}
+            </div>
+            <div class="operation">
+                <div class="edit-ops">
+                    <form action="{{ url_for('edit', note_id=note.id) }}" method="get">
+                        <button type="submit">Edit</button>
+                    </form>
+                </div>
+                <div class="delete-ops">
+                    <form action="{{ url_for('delete', note_id=note.id) }}" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div style="display: flex;">
-           <div>
-            <form action="{{ url_for('edit', note_id=note.id) }}" method="get">
-                <button type="submit">Edit</button>
-            </form>
-           </div>
-           <div>
-            <form action="{{ url_for('delete', note_id=note.id) }}" method="post">
-                <button type="submit">Delete</button>
-            </form>
-           </div>
-        </div>
-       </div>
         {% endfor %}
-    </ul>
-</div>
-</body>
-</html>
+    </div>
+    {% endblock %}
