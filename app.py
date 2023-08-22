@@ -8,7 +8,7 @@ db = SQLAlchemy(app)
 
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(200), nullable=False)
+    note = db.Column(db.String(200), nullable=False)
     is_done = db.Column(db.Boolean, default=False)
 
 @app.route('/')
@@ -22,7 +22,7 @@ def add():
     add_note = Task(note=note)
     db.session.add(add_note)
     db.session.commit()
-    return redirect(url_for('home'))
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)
